@@ -1,5 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 
+;; 自己定义的函数
 ;; 快速打开配置文件
 (defun open-my-init-file ()
   (interactive)

@@ -19,4 +19,7 @@
 ;; 打开最近访问文件的映射
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
+;; 快速打开counsel-git
+(global-set-key (kbd "C-c p f") 'counsel-git)
+
 (provide 'init-keybindings)
