@@ -3,7 +3,7 @@
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 
 ;; ivy的键盘映射
-;; enable this if you want `swiper' to use it
+;; enable this if you want 'swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)

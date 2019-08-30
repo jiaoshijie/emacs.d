@@ -1,4 +1,7 @@
 ;; emacs美化配置
+;; 全屏显示
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 ;; 关闭工具栏
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -20,11 +23,8 @@
 
 ;; 设置主题
 ;; (load-theme 'tsdh-dark)
-(load-theme 'monokai 1)
-
-;; 全屏显示
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
-
+;; (load-theme 'monokai 1)
+(load-theme 'darkokai 1)
 
 ;; -------* *--------- ;;
 (provide 'init-ui)
