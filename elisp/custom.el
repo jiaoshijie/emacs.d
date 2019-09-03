@@ -9,6 +9,11 @@
  '(custom-safe-themes
    (quote
     ("37ba833442e0c5155a46df21446cadbe623440ccb6bbd61382eb869a2b9e9bf9" "a2cde79e4cc8dc9a03e7d9a42fabf8928720d420034b66aecc5b665bbf05d4e9" default)))
+ '(evil-leader/leader "SPC")
+ '(evil-want-C-u-scroll t)
+ '(package-selected-packages
+   (quote
+    (company darkokai-theme hungry-delete swiper counsel smartparens js2-mode nodejs-repl popwin web-mode js2-refactor expand-region iedit htmlize helm-ag org-pomodoro flycheck auto-yasnippet evil evil-leader)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80))
 (custom-set-faces

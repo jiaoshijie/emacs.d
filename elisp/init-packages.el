@@ -16,9 +16,8 @@
 		      ;; --- Auto-completion ---
 		      company
 		      ;; --- Themes --- 设置在init-ui.el中
-		      monokai-theme
 		      darkokai-theme
-		      ;; solarized-theme
+		      ;; 删除空格插件
 		      hungry-delete
 		      ;; smex
 		      swiper
@@ -36,7 +35,14 @@
 		      org-pomodoro
 		      flycheck
 		      auto-yasnippet
+		      ;; ----- * evil * ----- ;;
 		      evil
+		      evil-leader
+		      window-numbering
+		      evil-surround
+		      evil-nerd-commenter
+		      which-key
+		      ;; ----- * * * * ------ ;; 
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -54,8 +60,44 @@
       (package-install pkg))))
 ;; ------------------------* 结束 *--------------------- ;;
 
-;; vim模式
+
+;; ----------* evil-mode vi layer *--------------------- ;;
+(global-evil-leader-mode)
 (evil-mode 1)
+
+;; 取消evil instert 模式的屏蔽
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+;; (define-key evil-insert-state-map (kbd "j k") 'evil-force-normal-state)
+;; set evil leader-key
+(evil-leader/set-key
+  "ff" 'find-file
+  "bb" 'switch-to-buffer
+  ":"  'counsel-M-x
+  "1"  'select-window-1
+  "2"  'select-window-2
+  "3"  'select-window-3
+  "4"  'select-window-4
+  "wK" 'delete-other-windows
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+  "s"  'save-buffer
+  )
+
+(window-numbering-mode 1)
+
+(require 'evil-surround)
+(global-evil-surround-mode)
+
+;; (evilnc-default-hotkeys)
+;; (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+;; (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+
+;; ---------------* evil end *------------------- ;;
+
+;; 显示当前可以使用的快捷键
+(which-key-mode 1)
 
 ;; 删除空格插件
 (require 'hungry-delete)
