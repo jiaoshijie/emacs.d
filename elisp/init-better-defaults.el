@@ -1,3 +1,5 @@
+(set-language-environment "UTF-8")
+
 ;; 禁止emacs自动生成备份文件
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -57,6 +59,53 @@
 					try-complete-lisp-symbol-partially
 					try-complete-lisp-symbol))
 
+;; 高级匹配括号
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
+
+;; 隐藏DOS下的换行符
+(defun hidden-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (unless buffer-display-table
+    (setq buffer-display-table (make-display-table)))
+  (aset buffer-display-table ?\^M []))
+
+;; 删除DOS下的换行符
+(defun remove-dos-eol ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
+
+;; 增强occur-mode
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+
+;; 进行目录操作是重用一个buffer
+(put 'dired-find-alternate-file 'disabled nil)
+
+;; 主动加载 Dired Mode
+;; (require 'dired)
+;; (defined-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+
+;; 延迟加载
+(with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 ;; ---------* *-------- ;;
 (provide 'init-better-defaults)
