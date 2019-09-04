@@ -20,7 +20,7 @@
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;; 快速打开counsel-git
-(global-set-key (kbd "C-c p f") 'counsel-git)
+;; (global-set-key (kbd "C-c p f") 'counsel-git)
 
 ;; 格式化代码
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
@@ -55,6 +55,6 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; ag搜索
-(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+;; (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
 (provide 'init-keybindings)

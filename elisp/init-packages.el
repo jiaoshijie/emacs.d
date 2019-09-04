@@ -17,6 +17,8 @@
 		      company
 		      ;; --- Themes --- 设置在init-ui.el中
 		      darkokai-theme
+		      spacemacs-theme
+		      gruvbox-theme
 		      ;; 删除空格插件
 		      hungry-delete
 		      ;; smex
@@ -35,6 +37,7 @@
 		      org-pomodoro
 		      flycheck
 		      auto-yasnippet
+		      use-package
 		      ;; ----- * evil * ----- ;;
 		      evil
 		      evil-leader
@@ -43,6 +46,7 @@
 		      evil-nerd-commenter
 		      which-key
 		      ;; ----- * * * * ------ ;; 
+
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -73,16 +77,20 @@
 ;; set evil leader-key
 (evil-leader/set-key
   "ff" 'find-file
+  "pf" 'counsel-git
+  "ps" 'helm-do-ag-project-root
   "bb" 'switch-to-buffer
+  "bk" 'kill-buffer
   ":"  'counsel-M-x
   "1"  'select-window-1
   "2"  'select-window-2
   "3"  'select-window-3
   "4"  'select-window-4
-  "wK" 'delete-other-windows
+  "wk" 'delete-other-windows
   "w/" 'split-window-right
   "w-" 'split-window-below
   "s"  'save-buffer
+  "Q"  'save-buffers-kill-terminal
   )
 
 (window-numbering-mode 1)
@@ -90,9 +98,9 @@
 (require 'evil-surround)
 (global-evil-surround-mode)
 
-;; (evilnc-default-hotkeys)
-;; (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
-;; (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+(evilnc-default-hotkeys)
+(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 
 ;; ---------------* evil end *------------------- ;;
 
@@ -179,6 +187,9 @@
 ;; 激活flycheck
 ;; (global-flycheck-mode t)
 (add-hook 'js2-mode-hook 'flycheck-mode)
+(add-hook 'python-mode-hook 'flycheck-mode)
+(add-hook 'c-mode-hook 'flycheck-mode)
+(add-hook 'c++-mode-hook 'flycheck-mode)
 
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)

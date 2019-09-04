@@ -23,8 +23,7 @@
 
 ;; 设置主题
 ;; (load-theme 'tsdh-dark)
-;; (load-theme 'monokai 1)
-(load-theme 'darkokai 1)
+(load-theme 'spacemacs-dark 1)
 
 ;; -------* *--------- ;;
 (provide 'init-ui)
