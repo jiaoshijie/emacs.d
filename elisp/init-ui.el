@@ -23,7 +23,7 @@
 
 ;; 设置主题
 ;; (load-theme 'tsdh-dark)
-(load-theme 'spacemacs-dark 1)
+(load-theme 'gruvbox-dark-hard 1)
 
 ;; -------* *--------- ;;
 (provide 'init-ui)
