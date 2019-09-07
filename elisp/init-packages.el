@@ -90,7 +90,7 @@
   "w/" 'split-window-right
   "w-" 'split-window-below
   "s"  'save-buffer
-  "Q"  'save-buffers-kill-terminal
+  "qq"  'save-buffers-kill-terminal
   )
 
 (window-numbering-mode 1)
