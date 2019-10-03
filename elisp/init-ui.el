@@ -1,6 +1,6 @@
 ;; emacs美化配置
 ;; 全屏显示
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+;; (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ;; 关闭工具栏
 (tool-bar-mode -1)
@@ -23,7 +23,7 @@
 
 ;; 设置主题
 ;; (load-theme 'tsdh-dark)
-(load-theme 'gruvbox-dark-hard 1)
+(load-theme 'gruvbox 1)
 
 ;; -------* *--------- ;;
 (provide 'init-ui)

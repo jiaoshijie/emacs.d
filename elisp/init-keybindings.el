@@ -2,12 +2,59 @@
 
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 
-;; ivy的键盘映射
-;; enable this if you want 'swiper' to use it
-;; (setq search-default-mode #'char-fold-to-regexp)
-(global-set-key "\C-s" 'swiper)
+;; ---------------------------------------------- ;;
+;; ------ * define evil-mode keybindings * ------ ;;
+;; ---------------------------------------------- ;;
+
+;; ========== @ insert mode @ ========= ;;
+;; (define-key evil-insert-state-map (kbd "j k") 'evil-force-normal-state)
+(define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+;; ========= @ normal mode @ ========== ;;
+(evil-leader/set-key
+  "SPC" 'counsel-M-x
+  "ESC" 'keyboard-quit
+  "ff" 'find-file
+  "fr" 'recentf-open-files
+  "bb" 'switch-to-buffer
+  "bD" 'kill-buffer
+  "s"  'save-buffer
+  "qq" 'save-buffers-kill-terminal
+  "1"  'select-window-1
+  "2"  'select-window-2
+  "3"  'select-window-3
+  "4"  'select-window-4
+  "wq" 'delete-other-windows
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+
+  "pp" 'org-html-export-to-html  ;; 导出org->html
+  "pn" 'indent-region-or-buffer  ;; 格式化代码
+  "fg" 'counsel-git
+  )
+;; 注释代码
+(define-key evil-normal-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-visual-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
+
+;; ------ * end evil mode keybindings * --------- ;;
+
+
+
+;; ---------------------------------------------- ;;
+;; --------- * company使用C-n C-p来选择 * -------- ;;
+;; ---------------------------------------------- ;;
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+
+;; ---------------------------------------------- ;;
+;; ---------- * ivy-mode keybindings * ---------- ;;
+;; ---------------------------------------------- ;;
+(global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
@@ -16,20 +63,12 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
-;; 打开最近访问文件的映射
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-;; 快速打开counsel-git
-;; (global-set-key (kbd "C-c p f") 'counsel-git)
-
-;; 格式化代码
-(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
-
-;; 扩展补全
-(global-set-key (kbd "s-/") 'hippie-expand)
-
-;; 转换缩进快捷键
-(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+;; ---------------------------------------------- ;;
+;; ---------- * org-mode keybindings * ---------- ;;
+;; ---------------------------------------------- ;;
+(global-set-key (kbd "C-c r") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; 增强occur-mode
 (global-set-key (kbd "M-s o") 'occur-dwim)
@@ -43,18 +82,7 @@
 ;; iedit
 (global-set-key (kbd "M-s e") 'iedit-mode)
 
-;; 设置company使用C-n C-p来选择补全
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
-
-;; org-mode快捷键
-(global-set-key (kbd "C-c r") 'org-capture)
-(global-set-key (kbd "C-c a") 'org-agenda)
-
-;; ag搜索
-;; (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+;; 扩展补全
+(global-set-key (kbd "s-/") 'hippie-expand)
 
 (provide 'init-keybindings)

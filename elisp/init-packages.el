@@ -7,7 +7,6 @@
 			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
-
 ;; cl - Common Lisp Extension
 (require 'cl)
 
@@ -15,37 +14,40 @@
 (defvar my/packages '(
 		      ;; --- Auto-completion ---
 		      company
-		      ;; --- Themes --- 设置在init-ui.el中
-		      darkokai-theme
-		      spacemacs-theme
+
+		      ;; --- Themes ---
+		      ;; spacemacs-theme
+		      ;; darkokai
 		      gruvbox-theme
-		      ;; 删除空格插件
+		      
 		      hungry-delete
-		      ;; smex
 		      swiper
 		      counsel
 		      smartparens
-		      js2-mode
-		      nodejs-repl
-		      popwin
-		      web-mode
-		      js2-refactor
 		      expand-region
 		      iedit
 		      htmlize
-		      helm-ag
 		      org-pomodoro
 		      flycheck
 		      auto-yasnippet
 		      use-package
+		      
+		      ;; ----- * web plugin * ----- ;;
+		      js2-mode
+		      nodejs-repl
+		      js2-refactor
+		      web-mode
+
+		      ;; ----- * edit * ------ ;;
+		      markdown-mode
+
 		      ;; ----- * evil * ----- ;;
 		      evil
 		      evil-leader
-		      window-numbering
 		      evil-surround
 		      evil-nerd-commenter
+		      window-numbering
 		      which-key
-		      ;; ----- * * * * ------ ;; 
 
 		      ) "Default packages")
 
@@ -62,7 +64,7 @@
   (dolist (pkg my/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
-;; ------------------------* 结束 *--------------------- ;;
+;; ------------------------* end *--------------------- ;;
 
 
 ;; ----------* evil-mode vi layer *--------------------- ;;
@@ -73,47 +75,20 @@
 (setcdr evil-insert-state-map nil)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
-;; (define-key evil-insert-state-map (kbd "j k") 'evil-force-normal-state)
-;; set evil leader-key
-(evil-leader/set-key
-  "ff" 'find-file
-  "pf" 'counsel-git
-  "ps" 'helm-do-ag-project-root
-  "bb" 'switch-to-buffer
-  "bk" 'kill-buffer
-  ":"  'counsel-M-x
-  "1"  'select-window-1
-  "2"  'select-window-2
-  "3"  'select-window-3
-  "4"  'select-window-4
-  "wk" 'delete-other-windows
-  "w/" 'split-window-right
-  "w-" 'split-window-below
-  "s"  'save-buffer
-  "qq"  'save-buffers-kill-terminal
-  )
-
 (window-numbering-mode 1)
 
 (require 'evil-surround)
 (global-evil-surround-mode)
 
 (evilnc-default-hotkeys)
-(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
-(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
-
 ;; ---------------* evil end *------------------- ;;
 
-;; 显示当前可以使用的快捷键
+;; show current useable keybindings
 (which-key-mode 1)
 
-;; 删除空格插件
+;; delete space plngin
 (require 'hungry-delete)
 (global-hungry-delete-mode)
-
-;; popwin
-(require 'popwin)
-(popwin-mode 1)
 
 ;; swiper设置
 (ivy-mode 1)
@@ -161,24 +136,6 @@
   (setq web-mode-code-indent-offset 2)   ; web-mode, js code in html file
   )
 (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
-
-;; wed-mode缩进转换
-(defun my-toggle-web-indent ()
-  (interactive)
-  ;; web development
-  (if (or (eq major-mode 'js-mode) (eq major-mode 'js2-mode))
-      (progn
-	(setq js-indent-level (if (= js-indent-level 2) 4 2))
-	(setq js2-basic-offset (if (= js2-basic-offset 2) 4 2))))
-
-  (if (eq major-mode 'web-mode)
-      (progn (setq web-mode-markup-indent-offset (if (= web-mode-markup-indent-offset 2) 4 2))
-	     (setq web-mode-css-indent-offset (if (= web-mode-css-indent-offset 2) 4 2))
-	     (setq web-mode-code-indent-offset (if (= web-mode-code-indent-offset 2) 4 2))))
-  (if (eq major-mode 'css-mode)
-      (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
-
-  (setq indent-tabs-mode nil))
 
 ;; config for js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)

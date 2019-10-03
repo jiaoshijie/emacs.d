@@ -5,6 +5,9 @@
 ;; 设置默认 Org Agenda 文件目录
 (setq org-agenda-files '("~/org"))
 
+;; 实现自动换行
+;; (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/.emacs.d/gtd.org" "工作安排")
          "* TODO [#B] %?\n  %i\n"
