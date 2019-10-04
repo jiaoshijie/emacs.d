@@ -12,7 +12,7 @@
 (global-hl-line-mode 1)
 
 ;; 定义简写
-(abbrev-mode t)
+(abbrev-mode 1)
 (define-abbrev-table 'global-abbrev-table '(
 					    ;; jiaoshijie
 					    ("8sj" "jiaoshijie")
@@ -81,20 +81,6 @@
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
-
-;; 增强occur-mode
-(defun occur-dwim ()
-  "Call `occur' with a sane default."
-  (interactive)
-  (push (if (region-active-p)
-	    (buffer-substring-no-properties
-	     (region-beginning)
-	     (region-end))
-	  (let ((sym (thing-at-point 'symbol)))
-	    (when (stringp sym)
-	      (regexp-quote sym))))
-	regexp-history)
-  (call-interactively 'occur))
 
 ;; 进行目录操作是重用一个buffer
 (put 'dired-find-alternate-file 'disabled nil)

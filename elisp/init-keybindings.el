@@ -7,8 +7,10 @@
 ;; ---------------------------------------------- ;;
 
 ;; ========== @ insert mode @ ========= ;;
-;; (define-key evil-insert-state-map (kbd "j k") 'evil-force-normal-state)
+(define-key evil-insert-state-map (kbd "C-j") 'evil-force-normal-state)
 (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+(define-key evil-insert-state-map (kbd "C-x C-o") 'hippie-expand)
+(define-key evil-insert-state-map (kbd "C-r =") 'evil-paste-before)
 
 ;; ========= @ normal mode @ ========== ;;
 (evil-leader/set-key
@@ -47,18 +49,16 @@
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+  (define-key company-active-map (kbd "C-p") #'company-select-previous)
+  (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char-and-join))
 
 
 ;; ---------------------------------------------- ;;
 ;; ---------- * ivy-mode keybindings * ---------- ;;
 ;; ---------------------------------------------- ;;
 (global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
@@ -70,19 +70,5 @@
 (global-set-key (kbd "C-c r") 'org-capture)
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; 增强occur-mode
-(global-set-key (kbd "M-s o") 'occur-dwim)
-
-;; counsel-imenu
-(global-set-key (kbd "M-s i") 'counsel-imenu)
-
-;; expand-region
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; iedit
-(global-set-key (kbd "M-s e") 'iedit-mode)
-
-;; 扩展补全
-(global-set-key (kbd "s-/") 'hippie-expand)
 
 (provide 'init-keybindings)

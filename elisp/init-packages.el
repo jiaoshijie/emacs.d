@@ -12,42 +12,43 @@
 
 ;; Add Packages
 (defvar my/packages '(
+		      ;; use-package 更好的使用包
+
 		      ;; --- Auto-completion ---
 		      company
+		      auto-yasnippet  ;; 代码补全插件
 
 		      ;; --- Themes ---
 		      ;; spacemacs-theme
 		      ;; darkokai
 		      gruvbox-theme
 		      
-		      hungry-delete
-		      swiper
+		      hungry-delete ;; 删除空格
+		      swiper ;; 搜索
 		      counsel
-		      smartparens
-		      expand-region
-		      iedit
-		      htmlize
-		      org-pomodoro
-		      flycheck
-		      auto-yasnippet
-		      use-package
-		      
+		      smartparens ;; 补全括号
+		      window-numbering  ;; 数字交换窗口
+		      which-key  ;; 展示可以使用的快捷键
+		      popwin
+
 		      ;; ----- * web plugin * ----- ;;
 		      js2-mode
 		      nodejs-repl
 		      js2-refactor
 		      web-mode
 
+		      flycheck ;; 语法检查
+		      
 		      ;; ----- * edit * ------ ;;
 		      markdown-mode
+		      org-pomodoro
 
 		      ;; ----- * evil * ----- ;;
 		      evil
 		      evil-leader
 		      evil-surround
 		      evil-nerd-commenter
-		      window-numbering
-		      which-key
+
 
 		      ) "Default packages")
 
@@ -100,8 +101,14 @@
 ;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 
-;; 开启简单的补全功能
-(global-company-mode 1)
+;; 激活flycheck
+;; (global-flycheck-mode t)
+(add-hook 'js2-mode-hook 'flycheck-mode)
+(add-hook 'python-mode-hook 'flycheck-mode)
+(add-hook 'c-mode-hook 'flycheck-mode)
+(add-hook 'c++-mode-hook 'flycheck-mode)
+
+
 
 ;; config js2-mode for js files
 (setq auto-mode-alist
@@ -109,25 +116,6 @@
        '(("\\.js\\'" . js2-mode))
        '(("\\.html\\'" . web-mode))
        auto-mode-alist))
-
-(defun js2-imenu-make-index ()
-      (interactive)
-      (save-excursion
-	;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
-	(imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
-				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-				   ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
-				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
-				   ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
-(add-hook 'js2-mode-hook
-	      (lambda ()
-		(setq imenu-create-index-function 'js2-imenu-make-index)))
 
 ;; 设置wed-mode各种语言缩进
 (defun my-web-mode-indent-setup ()
@@ -141,13 +129,13 @@
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
-;; 激活flycheck
-;; (global-flycheck-mode t)
-(add-hook 'js2-mode-hook 'flycheck-mode)
-(add-hook 'python-mode-hook 'flycheck-mode)
-(add-hook 'c-mode-hook 'flycheck-mode)
-(add-hook 'c++-mode-hook 'flycheck-mode)
+;
+; popwin
+(require 'popwin)
+(popwin-mode 1)
 
+;; 代码补全插件(要在最后)
+(global-company-mode 1)
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
