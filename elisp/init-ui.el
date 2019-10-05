@@ -17,7 +17,11 @@
 
 ;; 设置主题
 ;; (load-theme 'tsdh-dark)
-(load-theme 'gruvbox 1)
+(load-theme 'spacemacs-dark 1)
+
+;; ser powerline
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
 
 ;; -------* *--------- ;;
 (provide 'init-ui)

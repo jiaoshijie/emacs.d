@@ -12,16 +12,17 @@
 
 ;; Add Packages
 (defvar my/packages '(
-		      ;; use-package 更好的使用包
+		      ;; 更好的使用包
+		      ;; use-package
 
 		      ;; --- Auto-completion ---
 		      company
 		      auto-yasnippet  ;; 代码补全插件
 
 		      ;; --- Themes ---
-		      ;; spacemacs-theme
-		      ;; darkokai
+		      spacemacs-theme
 		      gruvbox-theme
+		      spaceline
 		      
 		      hungry-delete ;; 删除空格
 		      swiper ;; 搜索
@@ -68,9 +69,13 @@
 ;; ------------------------* end *--------------------- ;;
 
 
-;; ----------* evil-mode vi layer *--------------------- ;;
+;; ---------------------------------------------------- ;;
+;; --------------* evil-mode vi layer *----------------- ;;
+;; ---------------------------------------------------- ;;
+
 (global-evil-leader-mode)
 (evil-mode 1)
+(evil-leader/set-leader "SPC")
 
 ;; 取消evil instert 模式的屏蔽
 (setcdr evil-insert-state-map nil)
@@ -82,7 +87,11 @@
 (global-evil-surround-mode)
 
 (evilnc-default-hotkeys)
-;; ---------------* evil end *------------------- ;;
+
+;; ---------------------------------------------------- ;;
+;; ------------------* evil end *---------------------- ;;
+;; ---------------------------------------------------- ;;
+
 
 ;; show current useable keybindings
 (which-key-mode 1)
@@ -127,7 +136,7 @@
 
 ;; config for js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-m")
+(js2r-add-keybindings-with-prefix "C-c C-m")  ;; ----******------
 
 ;
 ; popwin

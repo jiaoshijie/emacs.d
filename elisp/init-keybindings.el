@@ -11,6 +11,7 @@
 (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 (define-key evil-insert-state-map (kbd "C-x C-o") 'hippie-expand)
 (define-key evil-insert-state-map (kbd "C-r =") 'evil-paste-before)
+(define-key evil-insert-state-map (kbd "C-w") 'backward-kill-word)
 
 ;; ========= @ normal mode @ ========== ;;
 (evil-leader/set-key
@@ -30,15 +31,25 @@
   "w/" 'split-window-right
   "w-" 'split-window-below
 
+  ;; ------ * plugin configure * ------ ;;
   "pp" 'org-html-export-to-html  ;; 导出org->html
   "pn" 'indent-region-or-buffer  ;; 格式化代码
   "fg" 'counsel-git
+  ;; org-mode
+  "or" 'org-capture
+  "oa" 'org-agenda
   )
 ;; 注释代码
 (define-key evil-normal-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
 (define-key evil-visual-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
 
+;; ========= @ visual mode @ ========== ;;
+;; (define-key evil-visual-state-map (kbd "SPC a") ')
+
+
+;; ---------------------------------------------- ;;
 ;; ------ * end evil mode keybindings * --------- ;;
+;; ---------------------------------------------- ;;
 
 
 
@@ -50,7 +61,8 @@
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous)
-  (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char-and-join))
+  (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char-and-join)  ;; evil-mode C-h 设置
+  )
 
 
 ;; ---------------------------------------------- ;;
@@ -62,13 +74,6 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
-
-
-;; ---------------------------------------------- ;;
-;; ---------- * org-mode keybindings * ---------- ;;
-;; ---------------------------------------------- ;;
-(global-set-key (kbd "C-c r") 'org-capture)
-(global-set-key (kbd "C-c a") 'org-agenda)
 
 
 (provide 'init-keybindings)
