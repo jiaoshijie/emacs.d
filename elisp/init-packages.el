@@ -13,15 +13,15 @@
 ;; Add Packages
 (defvar my/packages '(
 		      ;; 更好的使用包
-		      ;; use-package
+		      use-package
+		      esup
 
 		      ;; --- Auto-completion ---
 		      company
-		      auto-yasnippet  ;; 代码补全插件
+		      yasnippet  ;; snippet 
 
 		      ;; --- Themes ---
 		      spacemacs-theme
-		      gruvbox-theme
 		      spaceline
 		      
 		      hungry-delete ;; 删除空格
@@ -34,21 +34,26 @@
 
 		      ;; ----- * web plugin * ----- ;;
 		      js2-mode
-		      nodejs-repl
-		      js2-refactor
+		      ;; js2-refactor  ;; 重构js代码
+		      ;; nodejs-repl
 		      web-mode
 
 		      flycheck ;; 语法检查
 		      
-		      ;; ----- * edit * ------ ;;
+		      ;; ----- * contents * ------ ;;
 		      markdown-mode
 		      org-pomodoro
+		      htmlize  ;; 导出0rg -> html
+		      iimage  ;; 显示图片
+		      ;; ox-hugo
+		      ;; easy-hugo
 
 		      ;; ----- * evil * ----- ;;
 		      evil
 		      evil-leader
 		      evil-surround
 		      evil-nerd-commenter
+		      evil-terminal-cursor-changer
 
 
 		      ) "Default packages")
@@ -83,7 +88,7 @@
 
 (window-numbering-mode 1)
 
-(require 'evil-surround)
+(use-package evil-surround)
 (global-evil-surround-mode)
 
 (evilnc-default-hotkeys)
@@ -97,7 +102,7 @@
 (which-key-mode 1)
 
 ;; delete space plngin
-(require 'hungry-delete)
+(use-package hungry-delete)
 (global-hungry-delete-mode)
 
 ;; swiper设置
@@ -106,7 +111,7 @@
 (setq enable-recursive-minibuffers t)
 
 ;; smartparens配置
-(require 'smartparens-config)
+(use-package smartparens-config)
 ;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 
@@ -135,17 +140,15 @@
 (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
 
 ;; config for js2-refactor
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-m")  ;; ----******------
+;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
+;; (js2r-add-keybindings-with-prefix "C-c C-m")
 
-;
+
 ; popwin
-(require 'popwin)
+(use-package popwin)
 (popwin-mode 1)
 
-;; 代码补全插件(要在最后)
+;; 代码补全插件
 (global-company-mode 1)
-(yas-reload-all)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (provide 'init-packages)

@@ -16,12 +16,10 @@
 (define-abbrev-table 'global-abbrev-table '(
 					    ;; jiaoshijie
 					    ("8sj" "jiaoshijie")
-					    ;; mingzikuazhang
-					    ("8mz" "mingzikuazhang")
 					    ))
 
 ;; 显示最近打开的文件
-(require 'recentf)
+(use-package recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
 
@@ -59,14 +57,6 @@
 					try-complete-lisp-symbol-partially
 					try-complete-lisp-symbol))
 
-;; 高级匹配括号
-(define-advice show-paren-function (:around (fn) fix-show-paren-function)
-  "Highlight enclosing parens."
-  (cond ((looking-at-p "\\s(") (funcall fn))
-	(t (save-excursion
-	     (ignore-errors (backward-up-list))
-	     (funcall fn)))))
-
 ;; 隐藏DOS下的换行符
 (defun hidden-dos-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
@@ -86,7 +76,7 @@
 (put 'dired-find-alternate-file 'disabled nil)
 
 ;; 主动加载 Dired Mode
-;; (require 'dired)
+;; (use-package dired)
 ;; (defined-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
 
 ;; 延迟加载

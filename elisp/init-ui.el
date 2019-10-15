@@ -19,9 +19,21 @@
 ;; (load-theme 'tsdh-dark)
 (load-theme 'spacemacs-dark 1)
 
-;; ser powerline
-(require 'spaceline-config)
+;; set powerline
+(use-package spaceline-config)
 (spaceline-spacemacs-theme)
+
+;; terminal cursor
+(unless (display-graphic-p)
+  (use-package evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate) ;; or (etcc-on)
+  )
+(setq evil-motion-state-cursor 'box)
+(setq evil-visual-state-cursor 'box)
+(setq evil-normal-state-cursor 'box)
+(setq evil-insert-state-cursor 'bar)
+(setq evil-replace-state-cursor 'hbar)
+(setq evil-emacs-state-cursor 'bar)
 
 ;; -------* *--------- ;;
 (provide 'init-ui)
