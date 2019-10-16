@@ -4,7 +4,10 @@
   (require 'package)
   (package-initialize)
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+  ;; (setq package-archives '(("gnu"   . "/mnt/elpa/gnu/")
+  ;; 	       ("melpa" . "/mnt/elpa/melpa/")))
+  )
 
 ;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 ;; cl - Common Lisp Extension
