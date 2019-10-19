@@ -33,7 +33,7 @@
   "w/" 'split-window-right
   "w-" 'split-window-below
   "hk" 'describe-key
-  "hv" 'counsel-describe-variabe
+  "hv" 'counsel-describe-variable
   "hf" 'counsel-describe-function
   "hK" 'find-function
   "hV" 'find-variable
