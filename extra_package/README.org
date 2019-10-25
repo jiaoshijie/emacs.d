@@ -1,0 +1,2 @@
+** fcitx.el 中文输入法自动切换
+   get clone https://github.com/cute-jumper/fcitx.el

@@ -1,6 +1,7 @@
 (setq gc-cons-threshold (* 50 1000 1000))
 
 (add-to-list 'load-path "~/.emacs.d/elisp/")
+(add-to-list 'load-path "~/.emacs.d/extra_package/fcitx.el")
 
 ;; 自己定义的函数
 ;; 快速打开配置文件

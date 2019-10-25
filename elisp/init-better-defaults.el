@@ -16,6 +16,7 @@
 (define-abbrev-table 'global-abbrev-table '(
 					    ;; jiaoshijie
 					    ("8sj" "jiaoshijie")
+					    ("8jmail" "jiao1751959040@gmail.com")
 					    ))
 
 ;; 显示最近打开的文件
@@ -69,6 +70,10 @@
 ;; 延迟加载
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+;; 中文输入法切换
+(use-package fcitx)
+(fcitx-aggressive-setup)
 
 ;; ---------* *-------- ;;
 (provide 'init-better-defaults)
