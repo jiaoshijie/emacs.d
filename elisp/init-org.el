@@ -1,5 +1,6 @@
 ;; 使org文本文件支持语法高亮
-(use-package org)
+(use-package org
+  :defer 2)
 (setq org-src-fontify-natively 1)
 
 ;; 设置默认 Org Agenda 文件目录

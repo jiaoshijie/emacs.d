@@ -16,7 +16,6 @@
 (set-default-font "Source Code Pro-14")
 
 ;; 设置主题
-;; (load-theme 'tsdh-dark)
 (load-theme 'spacemacs-dark 1)
 
 ;; set powerline

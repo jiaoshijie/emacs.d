@@ -19,7 +19,9 @@
 					    ))
 
 ;; 显示最近打开的文件
-(use-package recentf)
+(use-package recentf
+  ;; Loads after 1 second of idle time
+  :defer 1)
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
 
@@ -56,21 +58,6 @@
 					try-expand-line
 					try-complete-lisp-symbol-partially
 					try-complete-lisp-symbol))
-
-;; 隐藏DOS下的换行符
-(defun hidden-dos-eol ()
-  "Do not show ^M in files containing mixed UNIX and DOS line endings."
-  (interactive)
-  (unless buffer-display-table
-    (setq buffer-display-table (make-display-table)))
-  (aset buffer-display-table ?\^M []))
-
-;; 删除DOS下的换行符
-(defun remove-dos-eol ()
-  "Replace DOS eolns CR LF with Unix eolns CR"
-  (interactive)
-  (goto-char (point-min))
-  (while (search-forward "\r" nil t) (replace-match "")))
 
 ;; 进行目录操作是重用一个buffer
 (put 'dired-find-alternate-file 'disabled nil)
