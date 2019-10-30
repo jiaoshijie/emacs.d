@@ -75,5 +75,8 @@
 (use-package fcitx)
 (fcitx-aggressive-setup)
 
+;; emacs-gdb
+(setq gdb-many-windows t)
+
 ;; ---------* *-------- ;;
 (provide 'init-better-defaults)
