@@ -21,7 +21,6 @@
 
 		      ;; --- Auto-completion ---
 		      company
-		      yasnippet  ;; snippet 
 
 		      ;; --- Themes ---
 		      spacemacs-theme
@@ -48,8 +47,6 @@
 		      org-pomodoro
 		      htmlize  ;; 导出0rg -> html
 		      iimage  ;; 显示图片
-		      ;; ox-hugo
-		      ;; easy-hugo
 
 		      ;; ----- * evil * ----- ;;
 		      evil

@@ -49,6 +49,7 @@
   "fg" 'counsel-git
 
   ;; org-mode
+  "oo" 'org-sparse-tree
   "ohh" 'org-html-export-to-html  ;; 导出org->html
   "on" 'org-next-visible-heading
   "op" 'org-previous-visible-heading
