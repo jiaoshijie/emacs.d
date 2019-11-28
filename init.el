@@ -2,6 +2,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (add-to-list 'load-path "~/.emacs.d/extra_package/fcitx.el")
+(add-to-list 'load-path "~/.emacs.d/extra_package/all-the-icons.el/")
 
 ;; 自己定义的函数
 ;; 快速打开配置文件

@@ -19,8 +19,15 @@
 (load-theme 'spacemacs-dark 1)
 
 ;; set powerline
-(use-package spaceline-config)
-(spaceline-spacemacs-theme)
+;; (use-package spaceline-config)
+;; (spaceline-spacemacs-theme)
+(use-package doom-modeline
+      :ensure t
+      :hook (after-init . doom-modeline-mode))
+(setq doom-modeline-height 25)
+(setq doom-modeline-bar-width 3)
+;; (require 'doom-modeline)
+;; (doom-modeline-mode 1)
 
 ;; terminal cursor
 (unless (display-graphic-p)
@@ -33,6 +40,9 @@
 (setq evil-insert-state-cursor 'bar)
 (setq evil-replace-state-cursor 'hbar)
 (setq evil-emacs-state-cursor 'bar)
+
+;; fonts
+(use-package all-the-icons)
 
 ;; -------* *--------- ;;
 (provide 'init-ui)
