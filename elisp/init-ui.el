@@ -16,11 +16,9 @@
 (set-default-font "Source Code Pro-14")
 
 ;; 设置主题
-(load-theme 'spacemacs-dark 1)
+(load-theme 'doom-one 1)
 
 ;; set powerline
-;; (use-package spaceline-config)
-;; (spaceline-spacemacs-theme)
 (use-package doom-modeline
       :ensure t
       :hook (after-init . doom-modeline-mode))

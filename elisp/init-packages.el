@@ -24,8 +24,6 @@
 
 		      ;; --- Themes ---
 		      doom-themes
-		      spacemacs-theme
-		      ;; spaceline
 		      doom-modeline
 		      
 		      hungry-delete ;; 删除空格
