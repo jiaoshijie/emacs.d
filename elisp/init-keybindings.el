@@ -34,7 +34,7 @@
   "8"  'select-window-8
   "9"  'select-window-9
   "wo" 'delete-other-windows
-  "wc" 'delete-window
+  "wd" 'delete-window
   "w/" 'split-window-right
   "w-" 'split-window-below
   "hk" 'describe-key
@@ -50,13 +50,11 @@
 
   ;; org-mode
   "oo" 'org-sparse-tree
-  "ohh" 'org-html-export-to-html  ;; 导出org->html
   "on" 'org-next-visible-heading
   "op" 'org-previous-visible-heading
   "ob" 'org-backward-heading-same-level
   "of" 'org-forward-heading-same-level
   "ou" 'outline-up-heading
-  "ojj" 'org-goto
   "or" 'org-capture
   "oa" 'org-agenda
   "ott" 'org-todo

@@ -69,11 +69,15 @@
 
 ;; 延迟加载
 (with-eval-after-load 'dired
-    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 ;; 中文输入法切换
 (use-package fcitx)
 (fcitx-aggressive-setup)
+
+;; 设置缩进
+(setq default-tab-width 2)
+(setq indent-tabs-mode nil)
 
 ;; emacs-gdb
 (setq gdb-many-windows t)

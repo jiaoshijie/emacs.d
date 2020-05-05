@@ -14,11 +14,5 @@
          "* TODO [#B] %?\n  %i\n"
          :empty-lines 1)))
 
-;; iimage mode
-(autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
-(autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
-(add-hook 'org-mode-hook 'iimage-mode)
-
-
 ;; --------* *------- ;;
 (provide 'init-org)

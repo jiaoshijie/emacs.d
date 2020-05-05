@@ -4,7 +4,7 @@
   (require 'package)
   (package-initialize)
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+			   ("melpa" . "http://elpa.emacs-china.org/melpa/")))
   ;; (setq package-archives '(("gnu"   . "/mnt/elpa/gnu/")
   ;;          ("melpa" . "/mnt/elpa/melpa/")))
   )
@@ -14,36 +14,10 @@
 
 ;; Add Packages
 (defvar my/packages '(
-		      ;; 更好的使用包
 		      use-package
-		      esup
-
-		      ;; --- Auto-completion ---
-		      company
-
-		      ;; --- Themes ---
+		      ;; ----- * theme * ----- ;;
 		      doom-themes
 		      doom-modeline
-		      
-		      hungry-delete ;; 删除空格
-		      swiper ;; 搜索
-		      counsel
-		      smartparens ;; 补全括号
-		      window-numbering  ;; 数字交换窗口
-		      which-key  ;; 展示可以使用的快捷键
-		      popwin
-
-		      ;; ----- * web plugin * ----- ;;
-		      js2-mode
-		      web-mode
-
-		      flycheck ;; 语法检查
-		      
-		      ;; ----- * contents * ------ ;;
-		      markdown-mode
-		      org-pomodoro
-		      htmlize  ;; 导出0rg -> html
-		      iimage  ;; 显示图片
 
 		      ;; ----- * evil * ----- ;;
 		      evil
@@ -51,6 +25,14 @@
 		      evil-surround
 		      evil-nerd-commenter
 
+		      ;; ----- * other * ---- ;;
+		      company ;; 补全
+		      counsel ;; 更好的显示一些功能
+		      swiper ;; 搜索
+		      smartparens ;; 补全括号
+		      window-numbering  ;; 数字交换窗口
+		      popwin ;; 弹出窗口
+		      markdown-mode
 
 		      ) "Default packages")
 
@@ -93,14 +75,6 @@
 ;; ------------------* evil end *---------------------- ;;
 ;; ---------------------------------------------------- ;;
 
-
-;; show current useable keybindings
-(which-key-mode 1)
-
-;; delete space plngin
-(use-package hungry-delete)
-(global-hungry-delete-mode)
-
 ;; swiper设置
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -111,35 +85,11 @@
 ;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 
-;; 激活flycheck
-;; (global-flycheck-mode t)
-(add-hook 'js2-mode-hook 'flycheck-mode)
-(add-hook 'python-mode-hook 'flycheck-mode)
-(add-hook 'c-mode-hook 'flycheck-mode)
-(add-hook 'c++-mode-hook 'flycheck-mode)
-
-
-
-;; config js2-mode for js files
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       '(("\\.html\\'" . web-mode))
-       auto-mode-alist))
-
-;; 设置wed-mode各种语言缩进
-(defun my-web-mode-indent-setup ()
-  (setq web-mode-markup-indent-offset 2) ; web-mode, html tag in html file
-  (setq web-mode-css-indent-offset 2)    ; web-mode, css in html file
-  (setq web-mode-code-indent-offset 2)   ; web-mode, js code in html file
-  )
-(add-hook 'web-mode-hook 'my-web-mode-indent-setup)
-
-; popwin
+					; popwin
 (use-package popwin)
 (popwin-mode 1)
 
-;; 代码补全插件
+;; 补全插件
 (global-company-mode 1)
 
 (provide 'init-packages)

@@ -12,6 +12,7 @@
  '(evil-want-C-u-scroll t)
  '(markdown-command
    "pandoc -f markdown -t html -s --mathjax --highlight-style pygments --metadata pagetitle=\"markdown\"")
+ '(org-agenda-files nil)
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80))
 (custom-set-faces

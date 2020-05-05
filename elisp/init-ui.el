@@ -20,8 +20,8 @@
 
 ;; set powerline
 (use-package doom-modeline
-      :ensure t
-      :hook (after-init . doom-modeline-mode))
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
 (setq doom-modeline-icon nil)  ; 不显示文件图标
 
 ;; -------* *--------- ;;
