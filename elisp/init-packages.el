@@ -9,7 +9,6 @@
   ;;          ("melpa" . "/mnt/elpa/melpa/")))
   )
 
-;; 注意 elpa.emacs-china.org 是 Emacs China 中文社区在国内搭建的一个 ELPA 镜像
 ;; cl - Common Lisp Extension
 (require 'cl)
 
@@ -36,8 +35,6 @@
 
 		      ;; ----- * web plugin * ----- ;;
 		      js2-mode
-		      ;; js2-refactor  ;; 重构js代码
-		      ;; nodejs-repl
 		      web-mode
 
 		      flycheck ;; 语法检查
@@ -53,7 +50,6 @@
 		      evil-leader
 		      evil-surround
 		      evil-nerd-commenter
-		      evil-terminal-cursor-changer
 
 
 		      ) "Default packages")
@@ -138,11 +134,6 @@
   (setq web-mode-code-indent-offset 2)   ; web-mode, js code in html file
   )
 (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
-
-;; config for js2-refactor
-;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
-;; (js2r-add-keybindings-with-prefix "C-c C-m")
-
 
 ; popwin
 (use-package popwin)

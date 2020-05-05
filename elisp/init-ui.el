@@ -22,25 +22,7 @@
 (use-package doom-modeline
       :ensure t
       :hook (after-init . doom-modeline-mode))
-(setq doom-modeline-height 25)
-(setq doom-modeline-bar-width 3)
-;; (require 'doom-modeline)
-;; (doom-modeline-mode 1)
-
-;; terminal cursor
-(unless (display-graphic-p)
-  (use-package evil-terminal-cursor-changer)
-  (evil-terminal-cursor-changer-activate) ;; or (etcc-on)
-  )
-(setq evil-motion-state-cursor 'box)
-(setq evil-visual-state-cursor 'box)
-(setq evil-normal-state-cursor 'box)
-(setq evil-insert-state-cursor 'bar)
-(setq evil-replace-state-cursor 'hbar)
-(setq evil-emacs-state-cursor 'bar)
-
-;; fonts
-(use-package all-the-icons)
+(setq doom-modeline-icon nil)  ; 不显示文件图标
 
 ;; -------* *--------- ;;
 (provide 'init-ui)
