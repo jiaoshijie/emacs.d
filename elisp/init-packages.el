@@ -4,7 +4,7 @@
   (require 'package)
   (package-initialize)
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-			   ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+                           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
   ;; (setq package-archives '(("gnu"   . "/mnt/elpa/gnu/")
   ;;          ("melpa" . "/mnt/elpa/melpa/")))
   )
@@ -14,34 +14,33 @@
 
 ;; Add Packages
 (defvar my/packages '(
-		      use-package
-		      ;; ----- * theme * ----- ;;
-		      doom-themes
-		      doom-modeline
+                      use-package
+                      ;; ----- * theme * ----- ;;
+                      doom-themes
+                      doom-modeline
 
-		      ;; ----- * evil * ----- ;;
-		      evil
-		      evil-leader
-		      evil-surround
-		      evil-nerd-commenter
+                      ;; ----- * evil * ----- ;;
+                      evil
+                      evil-leader
+                      evil-surround
+                      evil-nerd-commenter
 
-		      ;; ----- * other * ---- ;;
-		      company ;; 补全
-		      counsel ;; 更好的显示一些功能
-		      swiper ;; 搜索
-		      smartparens ;; 补全括号
-		      window-numbering  ;; 数字交换窗口
-		      popwin ;; 弹出窗口
-		      markdown-mode
+                      ;; ----- * other * ---- ;;
+                      company ;; 补全
+                      counsel ;; 更好的显示一些功能
+                      smartparens ;; 补全括号
+                      window-numbering  ;; 数字交换窗口
+                      popwin ;; 弹出窗口
+                      markdown-mode
 
-		      ) "Default packages")
+                      ) "Default packages")
 
 (setq package-selected-packages my/packages)
 
 (defun my/packages-installed-p ()
   (loop for pkg in my/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
+        when (not (package-installed-p pkg)) do (return nil)
+        finally (return t)))
 
 (unless (my/packages-installed-p)
   (message "%s" "Refreshing package database...")
@@ -75,17 +74,11 @@
 ;; ------------------* evil end *---------------------- ;;
 ;; ---------------------------------------------------- ;;
 
-;; swiper设置
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-
 ;; smartparens配置
 (use-package smartparens-config)
-;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 
-					; popwin
+;; popwin
 (use-package popwin)
 (popwin-mode 1)
 

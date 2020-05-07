@@ -14,15 +14,15 @@
 ;; 定义简写
 (abbrev-mode 1)
 (define-abbrev-table 'global-abbrev-table '(
-					    ;; jiaoshijie
-					    ("8sj" "jiaoshijie")
-					    ("8jmail" "jiao1751959040@gmail.com")
-					    ))
+                                            ;; jiaoshijie
+                                            ("8sj" "jiaoshijie")
+                                            ("8jmail" "jiao1751959040@gmail.com")
+                                            ))
 
 ;; 显示最近打开的文件
 (use-package recentf
-  ;; Loads after 1 second of idle time
-  :defer 1)
+             ;; Loads after 1 second of idle time
+             :defer 1)
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
 
@@ -31,34 +31,6 @@
 
 ;; 匹配括号
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
-
-;; 代码格式化
-(defun indent-buffer()
-  (interactive)
-  (indent-region (point-min) (point-max)))
-
-(defun indent-region-or-buffer()
-  (interactive)
-  (save-excursion
-    (if (region-active-p)
-	(progn
-	  (indent-region (region-beginning) (region-end))
-	  (message "Indent selected region."))
-      (progn
-	(indent-buffer)
-	(message "Indent buffer.")))))
-
-;; 特殊补全
-(setq hippie-expand-try-function-list '(try-expand-debbrev
-					try-expand-debbrev-all-buffers
-					try-expand-debbrev-from-kill
-					try-complete-file-name-partially
-					try-complete-file-name
-					try-expand-all-abbrevs
-					try-expand-list
-					try-expand-line
-					try-complete-lisp-symbol-partially
-					try-complete-lisp-symbol))
 
 ;; 进行目录操作是重用一个buffer
 (put 'dired-find-alternate-file 'disabled nil)
@@ -69,7 +41,7 @@
 
 ;; 延迟加载
 (with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+                      (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 ;; 中文输入法切换
 (use-package fcitx)
