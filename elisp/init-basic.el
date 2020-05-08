@@ -11,14 +11,6 @@
 (global-linum-mode 1)
 (global-hl-line-mode 1)
 
-;; 定义简写
-(abbrev-mode 1)
-(define-abbrev-table 'global-abbrev-table '(
-                                            ;; jiaoshijie
-                                            ("8sj" "jiaoshijie")
-                                            ("8jmail" "jiao1751959040@gmail.com")
-                                            ))
-
 ;; 显示最近打开的文件
 (use-package recentf
              ;; Loads after 1 second of idle time
@@ -34,11 +26,6 @@
 
 ;; 进行目录操作是重用一个buffer
 (put 'dired-find-alternate-file 'disabled nil)
-
-;; 主动加载 Dired Mode
-;; (use-package dired)
-;; (defined-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
-
 ;; 延迟加载
 (with-eval-after-load 'dired
                       (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
@@ -55,4 +42,4 @@
 (setq gdb-many-windows t)
 
 ;; ---------* *-------- ;;
-(provide 'init-better-defaults)
+(provide 'init-basic)

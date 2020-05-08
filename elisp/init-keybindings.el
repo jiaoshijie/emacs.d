@@ -4,6 +4,10 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
+(defun open-my-task-file ()
+  (interactive)
+  (find-file "~/Nutstore Files/Nutstore/task.org"))
+
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 
 ;; ---------------------------------------------- ;;
@@ -48,6 +52,7 @@
   "hf" 'counsel-describe-function
 
   ;; org-mode
+  "ft" 'open-my-task-file
   "ot" 'org-capture
   "oo" 'org-sparse-tree
   "ou" 'outline-up-heading

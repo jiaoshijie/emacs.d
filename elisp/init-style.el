@@ -25,4 +25,4 @@
 (setq doom-modeline-icon nil)  ; 不显示文件图标
 
 ;; -------* *--------- ;;
-(provide 'init-ui)
+(provide 'init-style)

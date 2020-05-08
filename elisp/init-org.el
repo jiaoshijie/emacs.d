@@ -4,8 +4,8 @@
 (setq org-src-fontify-natively 1)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Nutstore Files/Nutstore/Org/TODO/gtd.org" "工作安排")
-         "* TODO [#B] %?\n  %i\n"
+      '(("t" "Todo" entry (file+headline "~/Nutstore Files/Nutstore/task.org" "从心出发")
+         "* TODO %?\n  %i\n"
          :empty-lines 1)))
 
 ;; --------* *------- ;;

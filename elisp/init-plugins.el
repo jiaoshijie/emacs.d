@@ -25,12 +25,11 @@
                       evil-surround
                       evil-nerd-commenter
 
-                      ;; ----- * other * ---- ;;
-                      company ;; 补全
-                      counsel ;; 更好的显示一些功能
-                      smartparens ;; 补全括号
-                      window-numbering  ;; 数字交换窗口
-                      popwin ;; 弹出窗口
+                      window-numbering
+                      popwin
+                      smartparens
+                      company
+                      counsel
                       markdown-mode
 
                       ) "Default packages")
@@ -85,4 +84,4 @@
 ;; 补全插件
 (global-company-mode 1)
 
-(provide 'init-packages)
+(provide 'init-plugins)
