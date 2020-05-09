@@ -4,10 +4,13 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-(defun open-my-task-file ()
+(defun open-my-task-dir ()
   (interactive)
-  (find-file "~/Nutstore Files/Nutstore/task.org"))
+  (find-file "~/Nutstore Files/Nutstore/GTD"))
 
+(defun open-home-dir ()
+  (interactive)
+  (find-file "~"))
 
 ;; ---------------------------------------------- ;;
 ;; ------ * define evil-mode keybindings * ------ ;;
@@ -26,6 +29,7 @@
   "SPC" 'counsel-M-x
 
   "ff" 'counsel-find-file
+  "fh" 'open-home-dir
   "fr" 'counsel-recentf
   "fg" 'counsel-git
 
@@ -43,6 +47,7 @@
   "7"  'select-window-7
   "8"  'select-window-8
   "9"  'select-window-9
+  "ww" 'other-window
   "wo" 'delete-other-windows
   "wd" 'delete-window
   "w/" 'split-window-right
@@ -53,11 +58,17 @@
   "hf" 'counsel-describe-function
 
   ;; org-mode
-  "ft" 'open-my-task-file
+  "ft" 'open-my-task-dir
+  "oa" 'org-agenda
   "ot" 'org-capture
   "oo" 'org-sparse-tree
   "ou" 'outline-up-heading
   "os" 'org-todo
+  "ods" 'org-schedule
+  "odd" 'org-deadline
+  "oci" 'org-clock-in
+  "oco" 'org-clock-out
+  "ocr" 'org-clock-report
   )
 ;; 注释代码
 (define-key evil-normal-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)

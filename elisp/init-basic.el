@@ -4,9 +4,6 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; 自动更新配置文件
-(global-auto-revert-mode t)
-
 ;; 显示行号
 (global-linum-mode 1)
 (global-hl-line-mode 1)
