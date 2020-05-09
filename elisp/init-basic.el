@@ -12,9 +12,7 @@
 (global-hl-line-mode 1)
 
 ;; 显示最近打开的文件
-(use-package recentf
-             ;; Loads after 1 second of idle time
-             :defer 1)
+(require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
 
@@ -31,7 +29,7 @@
                       (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 ;; 中文输入法切换
-(use-package fcitx)
+(require 'fcitx)
 (fcitx-aggressive-setup)
 
 ;; 设置缩进

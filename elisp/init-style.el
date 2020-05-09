@@ -18,11 +18,5 @@
 ;; 设置主题
 (load-theme 'doom-one 1)
 
-;; set powerline
-(use-package doom-modeline
-             :ensure t
-             :hook (after-init . doom-modeline-mode))
-(setq doom-modeline-icon nil)  ; 不显示文件图标
-
 ;; -------* *--------- ;;
 (provide 'init-style)

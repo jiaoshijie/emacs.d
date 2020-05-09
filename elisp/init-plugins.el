@@ -1,12 +1,9 @@
 ;; 插件管理
-;; 设置安装源和包管理
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                            ("melpa" . "http://elpa.emacs-china.org/melpa/")))
-  ;; (setq package-archives '(("gnu"   . "/mnt/elpa/gnu/")
-  ;;          ("melpa" . "/mnt/elpa/melpa/")))
   )
 
 ;; cl - Common Lisp Extension
@@ -14,10 +11,8 @@
 
 ;; Add Packages
 (defvar my/packages '(
-                      use-package
                       ;; ----- * theme * ----- ;;
                       doom-themes
-                      doom-modeline
 
                       ;; ----- * evil * ----- ;;
                       evil
@@ -53,7 +48,6 @@
 ;; ---------------------------------------------------- ;;
 ;; --------------* evil-mode vi layer *----------------- ;;
 ;; ---------------------------------------------------- ;;
-
 (global-evil-leader-mode)
 (evil-mode 1)
 (evil-leader/set-leader "SPC")
@@ -64,21 +58,18 @@
 
 (window-numbering-mode 1)
 
-(use-package evil-surround)
+(require 'evil-surround)
 (global-evil-surround-mode)
 
 (evilnc-default-hotkeys)
-
-;; ---------------------------------------------------- ;;
 ;; ------------------* evil end *---------------------- ;;
-;; ---------------------------------------------------- ;;
 
 ;; smartparens配置
-(use-package smartparens-config)
+(require 'smartparens-config)
 (smartparens-global-mode t)
 
 ;; popwin
-(use-package popwin)
+(require 'popwin)
 (popwin-mode 1)
 
 ;; 补全插件

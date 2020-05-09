@@ -8,7 +8,6 @@
   (interactive)
   (find-file "~/Nutstore Files/Nutstore/task.org"))
 
-(global-set-key (kbd "<f2>") 'open-my-init-file)
 
 ;; ---------------------------------------------- ;;
 ;; ------ * define evil-mode keybindings * ------ ;;
@@ -20,12 +19,14 @@
 (define-key evil-insert-state-map (kbd "C-w") 'backward-kill-word)
 
 ;; ========= @ normal mode @ ========== ;;
+(define-key evil-normal-state-map (kbd "C-p") 'counsel-rg)
+(define-key evil-normal-state-map (kbd "<f2>") 'open-my-init-file)
 
 (evil-leader/set-key
   "SPC" 'counsel-M-x
 
   "ff" 'counsel-find-file
-  "fr" 'recentf-open-files
+  "fr" 'counsel-recentf
   "fg" 'counsel-git
 
   "bb" 'counsel-switch-buffer
@@ -68,15 +69,14 @@
 
 
 
-;; ---------------------------------------------- ;;
 ;; --------- * company使用C-n C-p来选择 * -------- ;;
-;; ---------------------------------------------- ;;
 (with-eval-after-load 'company
                       (define-key company-active-map (kbd "M-n") nil)
                       (define-key company-active-map (kbd "M-p") nil)
                       (define-key company-active-map (kbd "C-n") #'company-select-next)
                       (define-key company-active-map (kbd "C-p") #'company-select-previous)
-                      (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char-and-join)  ;; evil-mode C-h 设置
+                      (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+		      (define-key company-active-map (kbd "C-w") 'backward-kill-word)
                       )
 
 (provide 'init-keybindings)

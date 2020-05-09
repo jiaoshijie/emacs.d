@@ -1,6 +1,5 @@
 ;; 使org文本文件支持语法高亮
-(use-package org
-             :defer 2)
+(require 'org)
 (setq org-src-fontify-natively 1)
 
 (setq org-capture-templates
