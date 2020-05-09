@@ -69,6 +69,7 @@
   "oci" 'org-clock-in
   "oco" 'org-clock-out
   "ocr" 'org-clock-report
+  "occ" 'org-ctrl-c-ctrl-c  ;; [/] [%] 任务细分
   )
 ;; 注释代码
 (define-key evil-normal-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
