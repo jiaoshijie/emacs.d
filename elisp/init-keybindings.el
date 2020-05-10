@@ -1,4 +1,4 @@
-;; 定义的键盘映射
+;; 下面快捷键要用到的函数
 
 (defun open-my-init-file ()
   (interactive)
@@ -11,6 +11,19 @@
 (defun open-home-dir ()
   (interactive)
   (find-file "~"))
+
+(defun toggle-transparency ()
+  (interactive)
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (set-frame-parameter
+      nil 'alpha
+      (if (eql (cond ((numberp alpha) alpha)
+                     ((numberp (cdr alpha)) (cdr alpha))
+                     ;; Also handle undocumented (<active> <inactive>) form.
+                     ((numberp (cadr alpha)) (cadr alpha)))
+               100)
+        '(90 . 90) '(100 . 100)))))
+
 
 ;; ---------------------------------------------- ;;
 ;; ------ * define evil-mode keybindings * ------ ;;
@@ -38,6 +51,8 @@
   "s"  'save-buffer
   "qq" 'save-buffers-kill-terminal
 
+  "ct" 'toggle-transparency
+
   "1"  'select-window-1
   "2"  'select-window-2
   "3"  'select-window-3
@@ -52,6 +67,8 @@
   "wd" 'delete-window
   "w/" 'split-window-right
   "w-" 'split-window-below
+
+  "u" 'undo-tree-visualize
 
   "hk" 'describe-key
   "hv" 'counsel-describe-variable

@@ -16,7 +16,20 @@
 (set-default-font "Source Code Pro-14")
 
 ;; 设置主题
-(load-theme 'doom-one 1)
+(load-theme 'doom-gruvbox 1)
+
+(require 'doom-modeline)
+(doom-modeline-mode 1)
+(setq doom-modeline-icon nil)
+
+;; 设置透明效果
+(set-frame-parameter nil 'alpha '(90 .100))
+
+(require 'dashboard)
+(dashboard-setup-startup-hook)
+(setq dashboard-center-content t)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
 
 ;; -------* *--------- ;;
 (provide 'init-style)

@@ -13,6 +13,9 @@
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
 
+;; yes-or-no-p to y-or-n-p
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; 向正常编辑器一样替换
 (delete-selection-mode 1)
 

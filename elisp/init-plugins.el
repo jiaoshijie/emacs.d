@@ -10,7 +10,9 @@
 ;; Add Packages
 (defvar my/packages '(
                       ;; ----- * theme * ----- ;;
+                      dashboard
                       doom-themes
+		      doom-modeline
 
                       ;; ----- * evil * ----- ;;
                       evil
@@ -21,10 +23,13 @@
                       window-numbering
                       popwin
                       smartparens
-                      company
                       counsel
+		      undo-tree
+
+                      company
+
                       markdown-mode
-                      dashboard
+
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -72,9 +77,5 @@
 
 ;; 补全插件
 (global-company-mode 1)
-
-(require 'dashboard)
-(dashboard-setup-startup-hook)
-(setq dashboard-center-content t)
 
 (provide 'init-plugins)
