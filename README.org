@@ -1,1 +1,11 @@
 * My Emacs config
+
+** 目录结构
+   
+#+BEGIN_SRC
+init.el ---- 初始化文件
+elisp ---- 配置目录
+site-elisp ---- 没有在elpa源中插件配置目录
+elpa ---- 存放下载的插件
+non-elpa ---- 存放下载的没有在elpa源的插件
+#+END_SRC

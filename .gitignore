@@ -1,7 +1,6 @@
 auto-save-list
-elpa
 eshell
 bookmarks
 recentf
-extra_package/
-!extra_package/README.org
+elpa
+non-elpa

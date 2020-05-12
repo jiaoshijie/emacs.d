@@ -1,5 +1,24 @@
-;; 下面快捷键要用到的函数
+;; evil config
+(require 'evil)
+(require 'evil-leader)
+(require 'evil-surround)
+(require 'evil-nerd-commenter)
 
+(evil-mode 1)
+
+(global-evil-leader-mode)
+(evil-leader/set-leader "SPC")
+
+;; 取消evil instert 模式的屏蔽
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+(global-evil-surround-mode)
+
+(evilnc-default-hotkeys)
+
+
+;; function
 (defun open-my-init-file ()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
@@ -25,9 +44,7 @@
         '(90 . 90) '(100 . 100)))))
 
 
-;; ---------------------------------------------- ;;
 ;; ------ * define evil-mode keybindings * ------ ;;
-;; ---------------------------------------------- ;;
 
 ;; ========== @ insert mode @ ========= ;;
 (define-key evil-insert-state-map (kbd "C-j") 'evil-force-normal-state)
@@ -92,20 +109,4 @@
 (define-key evil-normal-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
 (define-key evil-visual-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
 
-;; ---------------------------------------------- ;;
-;; ------ * end evil mode keybindings * --------- ;;
-;; ---------------------------------------------- ;;
-
-
-
-;; --------- * company使用C-n C-p来选择 * -------- ;;
-(with-eval-after-load 'company
-                      (define-key company-active-map (kbd "M-n") nil)
-                      (define-key company-active-map (kbd "M-p") nil)
-                      (define-key company-active-map (kbd "C-n") #'company-select-next)
-                      (define-key company-active-map (kbd "C-p") #'company-select-previous)
-                      (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-		      (define-key company-active-map (kbd "C-w") 'backward-kill-word)
-                      )
-
-(provide 'init-keybindings)
+(provide 'init_evil)

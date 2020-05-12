@@ -4,8 +4,9 @@
 
 (setq org-agenda-files '("~/Nutstore Files/Nutstore/GTD"))
 
-(setq org-default-notes-file "~/Nutstore Files/Nutstore/GTD/task.org")
+;; (setq org-default-notes-file "~/Nutstore Files/Nutstore/GTD/task.org")
 
+;; 设置模板
 (setq org-capture-templates
       '(
 	("t" "Todo" entry (file+headline "~/Nutstore Files/Nutstore/GTD/task.org" "从心出发")
@@ -15,8 +16,13 @@
 	("h" "homeworks" entry (file+headline "~/Nutstore Files/Nutstore/GTD/homeworks.org" "石油作业")
 	 "* TODO [#D] %?\n  %i\n"
 	 :empty-lines 1)
+
+	("c" "cyclic task" entry (file+headline "~/Nutstore Files/Nutstore/GTD/cyclic_task.org" "循环任务")
+	"* TODO [#C] %?\n  %i\n"
+	:empty-lines 1)
 	))
 
+;; 设置任务等级
 (setq org-highest-priority ?A)
 (setq org-lowest-priority  ?D)
 (setq org-default-priority ?D)

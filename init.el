@@ -12,18 +12,17 @@
 (setq emacs-load-start-time (current-time))
 
 (add-to-list 'load-path "~/.emacs.d/elisp/")
-(add-to-list 'load-path "~/.emacs.d/extra_package/fcitx.el/")
+(add-to-list 'load-path "~/.emacs.d/site-elisp/")
 
-(require 'init-plugins)
-(require 'init-basic)
-(require 'init-org)
+(require 'init-basic) ;; 基础配置
+(require 'init-elpa)
 (require 'init-style)
-(require 'init-keybindings)
+(require 'init-org)
 
-;; gui配置
+(require 'fcitx-config)
+
 (setq custom-file (expand-file-name "elisp/custom.el" user-emacs-directory))
 (load-file custom-file)
-
 
 (setq gc-cons-threshold best-gc-cons-threshold)
 
