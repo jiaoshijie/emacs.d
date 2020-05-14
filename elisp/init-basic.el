@@ -28,10 +28,6 @@
 (with-eval-after-load 'dired
                       (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
-;; 设置缩进
-(setq default-tab-width 2)
-(setq indent-tabs-mode nil)
-
 ;; emacs-gdb
 (setq gdb-many-windows t)
 

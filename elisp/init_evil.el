@@ -70,6 +70,8 @@
 
   "ct" 'toggle-transparency
 
+  "ti" 'jsj-toggle-indent
+
   "1"  'select-window-1
   "2"  'select-window-2
   "3"  'select-window-3

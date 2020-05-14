@@ -18,6 +18,7 @@
 (require 'init-elpa)
 (require 'init-style)
 (require 'init-org)
+(require 'init-tabs)
 
 (require 'fcitx-config)
 
