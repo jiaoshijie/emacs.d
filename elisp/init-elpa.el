@@ -50,7 +50,7 @@
                       counsel
                       ;; }}
 
-                      ;; {{ completion
+                      ;; {{ auto-completion
                       company
                       ;; }}
 
@@ -59,12 +59,7 @@
                       popwin
                       ;; }}
 
-                      ;; {{ markdown
-                      markdown-mode
-                      ;; }}
-
-                      ;; {{ others
-                      smartparens
+                      ;; {{ undo-tree
                       undo-tree
                       ;; }}
 
