@@ -1,22 +1,11 @@
 ;; evil config
 (require 'evil)
-(require 'evil-leader)
 (require 'evil-surround)
 (require 'evil-nerd-commenter)
 
 (evil-mode 1)
-
-(global-evil-leader-mode)
-(evil-leader/set-leader "SPC")
-
-;; 取消evil instert 模式的屏蔽
-(setcdr evil-insert-state-map nil)
-(define-key evil-insert-state-map [escape] 'evil-normal-state)
-
 (global-evil-surround-mode)
-
-(evilnc-default-hotkeys)
-
+(evilnc-default-hotkeys nil t)
 
 ;; function
 (defun open-my-init-file ()
@@ -44,71 +33,76 @@
         '(90 . 90) '(100 . 100)))))
 
 
-;; ------ * define evil-mode keybindings * ------ ;;
-
 ;; ========== @ insert mode @ ========= ;;
-(define-key evil-insert-state-map (kbd "C-j") 'evil-force-normal-state)
-(define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-(define-key evil-insert-state-map (kbd "C-w") 'backward-kill-word)
+(evil-define-key 'insert 'global
+  (kbd "C-j") 'evil-force-normal-state
+  (kbd "C-h") 'evil-delete-backward-char-and-join
+  (kbd "C-w") 'backward-kill-word
+  )
 
 ;; ========= @ normal mode @ ========== ;;
-(define-key evil-normal-state-map (kbd "C-p") 'counsel-rg)
-(define-key evil-normal-state-map (kbd "<f2>") 'open-my-init-file)
+(evil-set-leader 'normal " ")
+;; (evil-set-leader 'normal "," "<localleader>")
 
-(evil-leader/set-key
-  "SPC" 'counsel-M-x
+(evil-define-key 'normal 'global
+  ;; ---- * non-leader * ---- ;;
+  (kbd "C-p") 'counsel-rg
+  (kbd "<f2>") 'open-my-init-file
 
-  "ff" 'counsel-find-file
-  "fh" 'open-home-dir
-  "fr" 'counsel-recentf
-  "fg" 'counsel-git
+  ;; ---- * leader-??? * ---- ;;
+  (kbd "<leader>SPC") 'counsel-M-x
 
-  "bb" 'counsel-switch-buffer
-  "bD" 'kill-buffer
-  "s"  'save-buffer
-  "qq" 'save-buffers-kill-terminal
+  (kbd "<leader>ff") 'counsel-find-file
+  (kbd "<leader>fh") 'open-home-dir
+  (kbd "<leader>fr") 'counsel-recentf
+  (kbd "<leader>fg") 'counsel-git
+  (kbd "<leader>bb") 'counsel-switch-buffer
+  (kbd "<leader>bD") 'kill-buffer
+  (kbd "<leader>s") 'save-buffer
+  (kbd "<leader>qq") 'save-buffers-kill-terminal
 
-  "ct" 'toggle-transparency
+  (kbd "<leader>ct") 'toggle-transparency
 
-  "ti" 'jsj-toggle-indent
+  (kbd "<leader>ti") 'jsj-toggle-indent
 
-  "1"  'select-window-1
-  "2"  'select-window-2
-  "3"  'select-window-3
-  "4"  'select-window-4
-  "5"  'select-window-5
-  "6"  'select-window-6
-  "7"  'select-window-7
-  "8"  'select-window-8
-  "9"  'select-window-9
-  "ww" 'other-window
-  "wo" 'delete-other-windows
-  "wd" 'delete-window
-  "w/" 'split-window-right
-  "w-" 'split-window-below
+  (kbd "<leader>1") 'select-window-1
+  (kbd "<leader>2") 'select-window-2
+  (kbd "<leader>3") 'select-window-3
+  (kbd "<leader>4") 'select-window-4
+  (kbd "<leader>5") 'select-window-5
+  (kbd "<leader>6") 'select-window-6
+  (kbd "<leader>7") 'select-window-7
+  (kbd "<leader>8") 'select-window-8
+  (kbd "<leader>9") 'select-window-9
+  (kbd "<leader>ww") 'other-window
+  (kbd "<leader>wo") 'delete-other-windows
+  (kbd "<leader>wd") 'delete-window
+  (kbd "<leader>w/") 'split-window-right
+  (kbd "<leader>w-") 'split-window-below
 
-  "u" 'undo-tree-visualize
+  (kbd "<leader>u") 'undo-tree-visualize
 
-  "hk" 'describe-key
-  "hv" 'counsel-describe-variable
-  "hf" 'counsel-describe-function
+  (kbd "<leader>hk") 'describe-key
+  (kbd "<leader>hv") 'counsel-describe-variable
+  (kbd "<leader>hf") 'counsel-describe-function
 
   ;; org-mode
-  "ft" 'open-my-task-dir
-  "oa" 'org-agenda
-  "ot" 'org-capture
-  "oo" 'org-sparse-tree
-  "ou" 'outline-up-heading
-  "os" 'org-todo
-  "ods" 'org-schedule
-  "odd" 'org-deadline
-  "oci" 'org-clock-in
-  "oco" 'org-clock-out
-  "ocr" 'org-clock-report
-  "occ" 'org-ctrl-c-ctrl-c  ;; [/] [%] 任务细分
+  (kbd "<leader>ft") 'open-my-task-dir
+  (kbd "<leader>oa") 'org-agenda
+  (kbd "<leader>ot") 'org-capture
+  (kbd "<leader>oo") 'org-sparse-tree
+  (kbd "<leader>ou") 'outline-up-heading
+  (kbd "<leader>os") 'org-todo
+  (kbd "<leader>ods") 'org-schedule
+  (kbd "<leader>odd") 'org-deadline
+  (kbd "<leader>oci") 'org-clock-in
+  (kbd "<leader>oco") 'org-clock-out
+  (kbd "<leader>ocr") 'org-clock-report
+  (kbd "<leader>occ") 'org-ctrl-c-ctrl-c  ;; [/] [%] 任务细分
   )
-;; 注释代码
-(define-key evil-normal-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
-(define-key evil-visual-state-map (kbd "SPC c c") 'evilnc-comment-or-uncomment-lines)
+
+(evil-define-key '(normal visual) 'global
+  (kbd "<leader>cc") 'evilnc-comment-or-uncomment-lines
+  )
 
 (provide 'init_evil)

@@ -41,9 +41,8 @@
 
                       ;; {{ evil
                       evil
-                      evil-leader
                       evil-surround
-                      evil-nerd-commenter
+		      evil-nerd-commenter
                       ;; }}
 
                       ;; {{ ivy-mode
@@ -78,10 +77,11 @@
   (dolist (pkg my/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
-;; ------------------------* end *--------------------- ;;
 
+;; ---- * require * ---- ;;
 (require 'init_evil)
 (require 'init_company)
 (require 'init_misc)
 
+;; ---- * end * ---- ;;
 (provide 'init-elpa)
