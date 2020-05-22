@@ -53,6 +53,10 @@
                       company
                       ;; }}
 
+		      ;; {{ error-check
+		      flycheck
+		      ;; }}
+
                       ;; {{ window
                       window-numbering
                       popwin
