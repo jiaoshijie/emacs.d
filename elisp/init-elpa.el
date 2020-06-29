@@ -42,7 +42,7 @@
                       ;; {{ evil
                       evil
                       evil-surround
-		      evil-nerd-commenter
+                      evil-nerd-commenter
                       ;; }}
 
                       ;; {{ ivy-mode
@@ -53,9 +53,9 @@
                       company
                       ;; }}
 
-		      ;; {{ error-check
-		      flycheck
-		      ;; }}
+                      ;; {{ error-check
+                      flycheck
+                      ;; }}
 
                       ;; {{ window
                       window-numbering
@@ -64,6 +64,11 @@
 
                       ;; {{ undo-tree
                       undo-tree
+                      ;; }}
+
+                      ;; {{ org-mode
+                       org-pomodoro
+		       sound-wav
                       ;; }}
 
                       ) "Default packages")

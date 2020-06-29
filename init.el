@@ -21,6 +21,7 @@
 (require 'init-tabs)
 
 (require 'fcitx-config)
+(require 'rainbow-fart-config)
 
 (setq custom-file (expand-file-name "elisp/custom.el" user-emacs-directory))
 (load-file custom-file)
