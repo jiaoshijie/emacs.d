@@ -9,8 +9,6 @@
 (require 'dashboard)
 (dashboard-setup-startup-hook)
 (setq dashboard-center-content t)
-(setq dashboard-set-heading-icons t)
-(setq dashboard-set-file-icons t)
 
 ;; 修改光标的样式
 (setq-default cursor-type 'bar)
@@ -22,11 +20,10 @@
 (set-frame-parameter nil 'alpha '(90 .100))
 
 ;; 设置主题
-(load-theme 'doom-one 1)
+(load-theme 'gruvbox-dark-hard 1)
 
-(require 'doom-modeline)
-(doom-modeline-mode 1)
-(setq doom-modeline-icon nil)
+(require 'powerline)
+(powerline-center-evil-theme)
 
 ;; -------* *--------- ;;
 (provide 'init-style)

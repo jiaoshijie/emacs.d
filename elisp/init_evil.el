@@ -65,20 +65,15 @@
 
   (kbd "<leader>ti") 'jsj-toggle-indent
 
-  (kbd "<leader>1") 'select-window-1
-  (kbd "<leader>2") 'select-window-2
-  (kbd "<leader>3") 'select-window-3
-  (kbd "<leader>4") 'select-window-4
-  (kbd "<leader>5") 'select-window-5
-  (kbd "<leader>6") 'select-window-6
-  (kbd "<leader>7") 'select-window-7
-  (kbd "<leader>8") 'select-window-8
-  (kbd "<leader>9") 'select-window-9
-  (kbd "<leader>ww") 'other-window
+  (kbd "<leader>ww") 'ace-window
   (kbd "<leader>wo") 'delete-other-windows
   (kbd "<leader>wd") 'delete-window
   (kbd "<leader>w/") 'split-window-right
   (kbd "<leader>w-") 'split-window-below
+  (kbd "M-H") 'windmove-left
+  (kbd "M-J") 'windmove-down
+  (kbd "M-K") 'windmove-up
+  (kbd "M-L") 'windmove-right
 
   (kbd "<leader>u") 'undo-tree-visualize
 
