@@ -55,6 +55,7 @@
                       undo-tree
                       company
                       flycheck
+		      evil-terminal-cursor-changer
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
