@@ -3,6 +3,18 @@
 (require 'evil-surround)
 (require 'evil-nerd-commenter)
 
+;; evil terminal cursor changer
+(unless (display-graphic-p)
+  (require 'evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate) ; or (etcc-on)
+  )
+(setq evil-motion-state-cursor 'box)
+(setq evil-visual-state-cursor 'box)
+(setq evil-normal-state-cursor 'box)
+(setq evil-insert-state-cursor 'bar)
+(setq evil-emacs-state-cursor  'hbar)
+
+
 (evil-mode 1)
 (global-evil-surround-mode)
 (evilnc-default-hotkeys nil t)
@@ -19,19 +31,6 @@
 (defun open-home-dir ()
   (interactive)
   (find-file "~"))
-
-(defun toggle-transparency ()
-  (interactive)
-  (let ((alpha (frame-parameter nil 'alpha)))
-    (set-frame-parameter
-      nil 'alpha
-      (if (eql (cond ((numberp alpha) alpha)
-                     ((numberp (cdr alpha)) (cdr alpha))
-                     ;; Also handle undocumented (<active> <inactive>) form.
-                     ((numberp (cadr alpha)) (cadr alpha)))
-               100)
-        '(90 . 90) '(100 . 100)))))
-
 
 ;; ========== @ insert mode @ ========= ;;
 (evil-define-key 'insert 'global
@@ -61,11 +60,9 @@
   (kbd "<leader>s") 'save-buffer
   (kbd "<leader>qq") 'save-buffers-kill-terminal
 
-  (kbd "<leader>ct") 'toggle-transparency
-
   (kbd "<leader>ti") 'jsj-toggle-indent
 
-  (kbd "<leader>ww") 'ace-window
+  (kbd "<leader>ww") 'other-window
   (kbd "<leader>wo") 'delete-other-windows
   (kbd "<leader>wd") 'delete-window
   (kbd "<leader>w/") 'split-window-right

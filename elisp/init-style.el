@@ -16,9 +16,6 @@
 ;; 设置字体
 (set-default-font "Source Code Pro-14")
 
-;; 设置透明效果
-(set-frame-parameter nil 'alpha '(90 .100))
-
 ;; 设置主题
 (load-theme 'gruvbox-dark-hard 1)
 

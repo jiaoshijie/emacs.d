@@ -46,16 +46,15 @@
                       dashboard
                       gruvbox-theme
                       powerline
+
                       evil
                       evil-surround
                       evil-nerd-commenter
-                      counsel
-                      ace-window
-                      popwin
-                      undo-tree
-                      company
-                      flycheck
 		      evil-terminal-cursor-changer
+
+                      counsel
+		      undo-tree
+                      company
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -78,7 +77,6 @@
 (require 'init-org)
 (require 'init-tabs)
 (require 'init_company)
-(require 'init_misc)
 
 (require 'fcitx-config)
 
@@ -87,6 +85,7 @@
 (setq custom-file (expand-file-name "elisp/custom.el" user-emacs-directory))
 (load-file custom-file)
 
+;; ------------------------------------------------------------------------;;
 (setq gc-cons-threshold best-gc-cons-threshold)
 
 ;;; Local Variables:
