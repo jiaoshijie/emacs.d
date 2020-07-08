@@ -1,6 +1,5 @@
 ;; evil config
 (require 'evil)
-(require 'evil-surround)
 (require 'evil-nerd-commenter)
 
 ;; evil terminal cursor changer
@@ -16,7 +15,6 @@
 
 
 (evil-mode 1)
-(global-evil-surround-mode)
 (evilnc-default-hotkeys nil t)
 
 ;; function

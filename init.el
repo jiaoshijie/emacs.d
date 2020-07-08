@@ -48,7 +48,6 @@
                       powerline
 
                       evil
-                      evil-surround
                       evil-nerd-commenter
 		      evil-terminal-cursor-changer
 
