@@ -43,17 +43,16 @@
 
 ;; Add Packages
 (defvar my/packages '(
-                      dashboard
-                      gruvbox-theme
-                      powerline
+		      dashboard
+		      powerline
 
                       evil
-                      evil-nerd-commenter
 		      evil-terminal-cursor-changer
-
-                      counsel
 		      undo-tree
-                      company
+
+		      ivy
+		      swiper
+                      counsel
                       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -75,7 +74,6 @@
 (require 'init-style)
 (require 'init-org)
 (require 'init-tabs)
-(require 'init_company)
 
 (require 'fcitx-config)
 

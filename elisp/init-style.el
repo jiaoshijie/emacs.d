@@ -5,7 +5,7 @@
 (scroll-bar-mode -1)
 
 ;; 替换启动画面
-(setq inhibit-splash-screen 1)
+ (setq inhibit-splash-screen 1)
 (require 'dashboard)
 (dashboard-setup-startup-hook)
 (setq dashboard-center-content t)
@@ -15,9 +15,6 @@
 
 ;; 设置字体
 (set-default-font "Source Code Pro-14")
-
-;; 设置主题
-(load-theme 'gruvbox-dark-hard 1)
 
 (require 'powerline)
 (powerline-center-evil-theme)

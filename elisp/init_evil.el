@@ -1,6 +1,5 @@
 ;; evil config
 (require 'evil)
-(require 'evil-nerd-commenter)
 
 ;; evil terminal cursor changer
 (unless (display-graphic-p)
@@ -15,7 +14,6 @@
 
 
 (evil-mode 1)
-(evilnc-default-hotkeys nil t)
 
 ;; function
 (defun open-my-init-file ()
@@ -91,8 +89,8 @@
   (kbd "<leader>occ") 'org-ctrl-c-ctrl-c  ;; [/] [%] 任务细分
   )
 
-(evil-define-key '(normal visual) 'global
-  (kbd "<leader>cc") 'evilnc-comment-or-uncomment-lines
-  )
+;; (evil-define-key '(normal visual) 'global
+;;   (kdb "=" 'evil-indent)
+;;   )
 
 (provide 'init_evil)
