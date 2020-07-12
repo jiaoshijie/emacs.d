@@ -43,7 +43,6 @@
 
 ;; Add Packages
 (defvar my/packages '(
-		      dashboard
 		      powerline
 
                       evil

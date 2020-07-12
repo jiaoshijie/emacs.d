@@ -6,9 +6,6 @@
 
 ;; 替换启动画面
  (setq inhibit-splash-screen 1)
-(require 'dashboard)
-(dashboard-setup-startup-hook)
-(setq dashboard-center-content t)
 
 ;; 修改光标的样式
 (setq-default cursor-type 'bar)
