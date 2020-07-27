@@ -6,6 +6,9 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.25)
  '(company-minimum-prefix-length 2)
+ '(custom-safe-themes
+   (quote
+    ("dcdd1471fde79899ae47152d090e3551b889edf4b46f00df36d653adc2bf550d" default)))
  '(evil-shift-width 2)
  '(evil-want-C-u-scroll t)
  '(popwin:popup-window-position (quote right))
