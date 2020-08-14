@@ -11,7 +11,7 @@
 (setq-default cursor-type 'bar)
 
 ;; 设置字体
-(set-default-font "Source Code Pro-14")
+(set-frame-font "Source Code Pro-14")
 
 (require 'powerline)
 (powerline-center-evil-theme)
