@@ -16,7 +16,5 @@
 (require 'powerline)
 (powerline-center-evil-theme)
 
-(load-theme 'dracula t)
-
 ;; -------* *--------- ;;
 (provide 'init-style)

@@ -44,7 +44,6 @@
 ;; Add Packages
 (defvar my/packages '(
 		      powerline
-		      dracula-theme
 
                       evil
 		      evil-terminal-cursor-changer
